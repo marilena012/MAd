@@ -1,0 +1,92 @@
+<html lang="en">
+  <head>
+    <title>Medical Web Advisor</title>
+ 
+    
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/signup.css" rel="stylesheet">
+    
+  </head>
+ 
+<header>
+   
+    <div class = "container-fluid">
+          
+    <ul class="nav navbar-nav navbar-left">
+          
+          <div style="margin-right: 250px; margin-left: 300px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <h3>Medical Web Advisor</h3>
+
+          </div>
+        </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+          
+          <div style="margin-right: 50px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <a role="presentation" class="active" data-toggle="modal" href="../home/"><span class="glyphicon glyphicon-home"></span> Home    </a>  
+            <a role="presentation" class="active" data-toggle="modal" href="../login/"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>  
+
+            </h5>
+            </div>
+          </ul>
+    </div>
+    
+</header>
+
+  <body>
+ 
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+          {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="container">
+ 
+      <div class="jumbotron">
+        <h1>Medical Web Advisor</h1>
+        <form class="form-signin" action="../register/" method="post">
+        <label for="inputName" class="sr-only">Username</label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Username" required autofocus>
+   
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+
+        <label for="inputConfirmPassword" class="sr-only">Password</label>
+        <input type="password" name="inputConfirmPassword" id="inputConfirmPassword" class="form-control" placeholder="Confirm password" required>
+
+         <label for="inputCountry" class="sr-only">Country</label>
+        <input type="country" name="inputCountry" id="inputCountry" class="form-control" placeholder="Country" required>
+
+        <label for="inputDateOfBirth" class="sr-only">Date of birth</label>
+        <input type="dateOfBirth" name="inputDateOfBirth" id="inputDateOfBirth" class="form-control" placeholder="Date of birth" required autofocus>
+
+         <p>Gender</p>
+         <select name="genders">
+
+          <option value="male"> Male </option>
+          <option value="female"> Female </option>
+          
+        </select>
+              
+        
+        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+      </form>
+      {% if error %}
+      <p class="error"><strong>Error</strong> {{error}} </p>
+      {% endif %}
+      </div>
+ 
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+  </body>
+</html>

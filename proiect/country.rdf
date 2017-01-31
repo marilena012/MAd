@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:wikidataQ="https://www.wikidata.org/wiki/"
+         xmlns:schemaorg="http://schema.org/"
+         xmlns:condition="http://health-lifesci.schema.org/MedicalCondition"
+         xmlns:property="http://meta.schema.org/Property"
+         xmlns:country="http://schema.org/Country"
+         xmlns:person="http://schema.org/Person"
+         xmlns:riskfactor="https://health-lifesci.schema.org/MedicalRiskFactor"
+         xmlns:food="http://schema.org/FoodEstablishment"
+         >
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q12174">
+        <property:category>disease</property:category>
+        <property:name>obesity</property:name>
+        <food:name>fast food</food:name>
+        <food:name>fats</food:name>
+        <food:name>sugar</food:name>
+        <person:nationality>american</person:nationality>
+        <riskfactor:name>sedentarism</riskfactor:name>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q12174">
+        <property:category>disease</property:category>
+        <property:name>influenza</property:name>
+        <person:nationality>romanian</person:nationality>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q12202">
+        <property:category>disease</property:category>
+        <property:name>cerebrovascular disease</property:name>
+        <person:nationality>american</person:nationality>
+        <riskfactor:name>sedentarism</riskfactor:name>
+        <riskfactor:name>smoking</riskfactor:name>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q272714">
+        <property:category>disease</property:category>
+        <property:name>gallstones</property:name>
+        <person:gender>female</person:gender>
+        <person:nationality>mexican</person:nationality>
+        <person:nationality>american</person:nationality>
+        <person:description>over 60 years</person:description>
+        <riskfactor:name>obesity</riskfactor:name>
+        <food:name>fats</food:name>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q8277">
+        <property:category>disease</property:category>
+        <property:name>multiple sclerosis</property:name>
+        <person:gender>female</person:gender>
+        <riskfactor:name>smoking</riskfactor:name>
+        <person:nationality>estonian</person:nationality>
+        <person:description>between 15 and 60</person:description>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q41861">
+        <property:category>disease</property:category>
+        <property:name>hypertension</property:name>
+        <person:nationality>estonian</person:nationality>
+        <person:nationality>romanian</person:nationality>
+        <person:description>over 50</person:description>
+        <riskfactor:name>smoking</riskfactor:name>
+        <riskfactor:name>obesity</riskfactor:name>
+        <food:name>fats</food:name>
+        <food:name>cholesterol</food:name>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q190805">
+        <property:category>disease</property:category>
+        <property:name>myocardial infarction</property:name>
+        <person:nationality>russian</person:nationality>
+        <person:nationality>romanian</person:nationality>
+        <person:description>over 50</person:description>
+        <riskfactor:name>sedentarism</riskfactor:name>
+        <riskfactor:name>smoking</riskfactor:name>
+        <riskfactor:name>diabetes</riskfactor:name>
+        <person:gender>male</person:gender>
+        <food:name>fats</food:name>
+        <food:name>cholesterol</food:name>
+        <food:name>sugar</food:name>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q35869">
+        <property:category>disease</property:category>
+        <property:name>asthma</property:name>
+        <person:nationality>new guinean</person:nationality>
+        <riskfactor:name>smoking</riskfactor:name>
+        <riskfactor:name>obesity</riskfactor:name>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q218">
+        <property:name>romania</property:name>
+        <property:category>country</property:category>
+        <wikidataQ:Q7937>temperate</wikidataQ:Q7937>
+        <person:nationality>romanian</person:nationality>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q30">
+        <property:category>country</property:category>
+        <property:name>USA</property:name>
+        <wikidataQ:Q7937>temperate</wikidataQ:Q7937>
+        <person:nationality>american</person:nationality>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q191">
+        <property:name>estonia</property:name>
+        <property:category>country</property:category>
+        <wikidataQ:Q7937>continental</wikidataQ:Q7937>
+        <person:nationality>estonian</person:nationality>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q159">
+        <property:category>country</property:category>
+        <property:name>russia</property:name>
+        <wikidataQ:Q7937>continental</wikidataQ:Q7937>
+        <person:nationality>russian</person:nationality>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q96">
+        <property:name>mexico</property:name>
+        <property:category>country</property:category>
+        <wikidataQ:Q7937>humid</wikidataQ:Q7937>
+        <person:nationality>mexican</person:nationality>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q40285">
+        <property:category>country</property:category>
+        <property:name>new guines</property:name>
+        <wikidataQ:Q7937>humid</wikidataQ:Q7937>
+        <person:nationality>new guinean</person:nationality>
+    </rdf:Description>
+
+</rdf:RDF>
