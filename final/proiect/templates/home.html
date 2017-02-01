@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Medical Web Advisor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<header>
+   
+    <div class = "container-fluid">
+          
+    <ul class="nav navbar-nav navbar-left">
+          
+          <div style="margin-right: 250px; margin-left: 300px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <h3>Medical Web Advisor</h3>
+
+          </div>
+        </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+          
+          <div style="margin-right: 50px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <h5> 
+            <h3>Hi, {{username}}!</h3>
+            <a role="presentation" class="active" data-toggle="modal" href="../quiz/"><span class="glyphicon glyphicon-pencil"></span> Quiz    </a>  
+            <a role="presentation" class="active" data-toggle="modal" href="../account/"><span class="glyphicon glyphicon-cog"></span> My account    </a>
+            <a role="presentation" data-toggle="modal" href="../logout/"><span class="glyphicon glyphicon-log-out"></span> Logout     </a>
+
+            </h5>
+            </div>
+          </ul>
+    </div>
+    
+</header>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <nav>
+                
+            </nav>
+    </div>
+
+<div class="container">
+   <div class="row">
+        <div class="col-sm-3">
+            <form class="form-horizontal" action="../home/" method="get">
+              <div class="form-group">
+                <label for="disName" class="col-sm-4 control-label">Disease</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="disName" placeholder="ex.influenza" name ="diseaseName"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sympt" class="col-sm-4 control-label">Symptoms</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="sympt" placeholder="ex.fever, headache" name="symptoms"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="treat" class="col-sm-4 control-label">Treatment</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="treat" placeholder="ex.venlafaxine" name ="treatment"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="causes" class="col-sm-4 control-label">Causes</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="causes" placeholder="ex.venlafaxine" name ="causes"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="type" class="col-sm-4 control-label">Type</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="type" placeholder="ex.viral infectious disease" name ="type"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="country" class="col-sm-4 control-label">Country</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="country" placeholder="ex.romania" name ="country"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="climate" class="col-sm-4 control-label">Climate</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="climate" placeholder="ex.temperat" name ="climate"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="food" class="col-sm-4 control-label">Food</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="food" placeholder="ex.fast food" name ="food"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-10">
+                  <button type = "submit" class = "btn btn-primary">Search</button><br><br>
+                </div>
+              </div>
+            </form>
+
+        </div>
+        <div class="col-sm-6">
+            <div role="tabpanel">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" {% if disease|length == 0 %} class="active" {% endif %}>
+                      <a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+                    <li role="presentation" {% if disease|length != 0 %} class="active" {% endif %}>
+                      <a href="#diseaseInfo" aria-controls="diseaseInfo" role="tab" data-toggle="tab">Disease Info</a></li>
+                    <li role="presentation" >
+                      <a href="#suggestions" aria-controls="suggestions" role="tab" data-toggle="tab">Suggestions</a></li>
+
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade" id="about">
+                      <br>
+                      {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                          {% for message in messages %}
+                          <div class="alert alert-warning alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                          {{message}}
+                          </div>
+                        {% endfor %}
+                        {% endif %}
+                      {% endwith %}
+                      <div class="panel panel-default">
+                          <div class="panel-heading"><p class="text-info">Info</p></div>
+                          <div class="panel-body">
+                            <h4><p class="text-info">This is the page where you can learn about various diseases.<br>
+                            After you finish learning you can play a game to test your knowledge.</p></h4>
+                          </div>
+                        </div>
+                          <div class="imgcontainer" style="margin:0 auto;">
+                            <img class="media-object"src="/static/images/Learn.jpg" alt="Avatar" height="310">
+                          </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in active" id="diseaseInfo" vocab="http://health-lifesci.schema.org/" typeof="MedicalCondition">
+                        {% if disease|length == 0 %}
+                        <br>
+                            <div class="panel panel-default">
+                          <div class="panel-heading"><p class="text-info">Info</p></div>
+                          <div class="panel-body">
+                            <h4><p class="text-info">This is the page where you can learn about various diseases.<br>
+                            After you finish learning you can play a game to test your knowledge.</p></h4>
+                          </div>
+                        </div>
+                          <div class="imgcontainer" style="margin:0 auto;">
+                            <img class="media-object"src="/static/images/Learn.jpg" alt="Avatar" height="310">
+                          </div>
+                        {% elif diseaseInfo == True %}
+                            <span property="name"><h2>{{disease[0]}}</h2></span>
+                            <br>
+                            {% if info|length > 0 %}
+                              <h4>About:</h4>
+                              <span property="description">
+                                  {{info}}
+                              </span>
+                             {% endif %}
+                             {% if image|length > 0 %}
+                              <br>
+                              <h4>Image:</h4>
+                              <img width="500" heigth="500" property="image" src="{{image}}">
+                            {% endif %}
+                            {% if symptoms|length > 0 %}
+                              <br>
+                              <h4>Symptoms:</h4>
+                              <ul>
+                                 {% for s in symptoms %}
+                                   <li><a property="signOrSymptom" href="/home/?symptoms={{s}}">{{s}}</a></li>
+                                 {% endfor %}
+                              </ul>
+                             {% endif %}
+                            {% if treatment|length > 0 %}
+                                <br>
+                                <h4>Treatment:</h4>
+                                <ul>
+                                   {% for t in treatment %}
+                                     <li><a property="possibleTreatment" href="/home/?treatment={{t}}">{{t}}</a></li>
+                                   {% endfor %}
+                                </ul>
+                             {% endif %}
+                            {% if hasCauses|length > 0 %}
+                                <br>
+                                <h4>Has causes:</h4>
+                                <ul>
+                                   {% for c in hasCauses %}
+                                     <li><a property="cause" href="/home/?causes={{c}}">{{c}}</a></li>
+                                   {% endfor %}
+                                </ul>
+                             {% endif %}
+                            {% if hasCauses|length > 0 %}
+                              <br>
+                              <h4>Cause of:</h4>
+                              <ul>
+                                 {% for c in causeOf %}
+                                   <li><a href="/home/?diseaseName={{c}}">{{c}}</a></li>
+                                 {% endfor %}
+                              </ul>
+                            {% endif %}
+                            <form action="" method="post">
+                                <button type = "submit" class = "btn btn-primary">Add To My List</button><br><br>
+                            </form>
+                        {% elif diseaseInfo == False %}
+                            <h2>Diseases</h2>
+                            <ul>
+                               {% for d in disease %}
+                                 <li><a href="/home/?diseaseName={{d}}">{{d}}</a></li>
+                               {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="suggestions">
+                      <br>
+                      {% if suggestions["class"]|length > 0 %}
+                      <div class="panel panel-info">
+                          <div class="panel-heading"><p class="panel-title">You may want to read about:</p></div>
+                          <div class="panel-body">
+                            <ul>
+                               {% for s in suggestions["class"] %}
+                                 <li><a href="/home/?diseaseName={{s}}">{{s}}</a></li>
+                               {% endfor %}
+                            </ul>
+                          </div>
+                        </div>
+                      {% endif %}
+                      {% if suggestions["country"]|length > 0 %}
+                            <div class="panel panel-warning">
+                              <div class="panel-heading"><p class="panel-title">In your country the diseases below are present:</p></div>
+                              <div class="panel-body">
+                               <ul>
+                               {% for s in suggestions["country"] %}
+                                 <li ><a href="/home/?diseaseName={{s}}">{{s}}</a></li>
+                               {% endfor %}
+                            </ul>
+                          </div>
+                        </div>
+                      {% endif %}
+                      {% if suggestions["risks"]|length > 0 %}
+                          <div class="panel panel-danger">
+                              <div class="panel-heading"><p class="panel-title">Risks</p></div>
+                                <div class="panel-body">
+                                   {% for s in suggestions["risks"] %}
+                                      <p>Because {{suggestions["risks"][s]["factors"]}}
+                                        you are predisposed to <a href="/home/?diseaseName={{s}}">{{s}}</a>
+
+                                        {%if suggestions["risks"][s]["cause"]|length > 0 %}
+                                          and it can cause  {{suggestions["risks"][s]["cause"]}}.
+                                        {% endif %}
+
+                                        {{suggestions["risks"][s]["rec"]}}</p>
+                                     {% endfor %}
+                                   </div>
+                                 </div>
+                            </ul>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div>
+                <h2>My List</h2>
+                <br>
+                <ul>
+                   {% for d in userList %}
+                     <li><a href="/home/?diseaseName={{d}}">{{d}}</a></li>
+                   {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <h2>Most visited</h2>
+                <br>
+                <ul>
+                   {% for d in visited %}
+                     <li><a href="/home/?diseaseName={{d}}">{{d}}</a></li>
+                   {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+ <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

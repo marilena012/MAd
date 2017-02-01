@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="{{ url_for('static',filename='myStyle.css')}}">
+        <title>MAd (Medical Web Advisor)</title>
+    </head> 
+    <body prefix="schema: http://schema.org/">
+    
+
+	<nav id="nav">
+            <ul>
+                <li><a href="#about" title="MAd">About</a></li>
+                <li><a href="#game" title="Game">The Game</a></li>
+ 
+            </ul>
+    </nav>
+	
+       <form action="" method="post" >
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+   
+	
+        <article typeof="schema:ScholarlyArticle" resource="#">
+            <h1> MAd (Medical Web Advisor) </h1>
+              <section id="about">
+                <h2>Medical Web Advisor</h2>
+                MAd is an innovative hypermedia experience that helps middle-/high-school students to learn more about specific medical conditions (common diseases, allergies, food intolerances, obesity factors, disorders, etc).
+                They can learn how these conditions affect the human body or the population of a given geographical area (such as a town, country, continent) based on specific conditions: climate, industrial development, population density, cultural factors, etc.
+            </section>
+            <section id="game">
+                <h2>The game</h2>
+                <ul>
+                    <li>Each user has the posibility to test his knowlegde by playing a simple game.</li>
+                    <li>There will be a set of 10 questions and each question will have 3 answer options.</li>
+                    <li>If the user choose the correct answer he will get 1 point.</li>
+                    <li>At the end of each game the score will be stored and a top will be displayed.</li>
+                    <li>The questions will be generated at runtime based on the user's search history and his favourite articles.</li>
+                </ul>
+            </section>
+            
+        </article>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+SELECT ?disease ?diseaseLabel ?symptomsLabel ?causeOfLabel
+    WHERE{
+        ?disease wdt:P31 wd:Q12136 .
+        ?disease wdt:P780 ?symptoms .
+        ?disease wdt:P1542 ?causeOf .
+
+        SERVICE wikibase:label {
+        bd:serviceParam wikibase:language "ro, en"
+        }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Medical Web Advisor</title>
+ 
+    
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/login.css" rel="stylesheet">
+    
+  </head>
+ 
+<header>
+   
+    <div class = "container-fluid">
+          
+    <ul class="nav navbar-nav navbar-left">
+          
+          <div style="margin-right: 250px; margin-left: 300px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <h3>Medical Web Advisor</h3>
+
+          </div>
+        </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+          
+          <div style="margin-right: 50px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <a role="presentation" class="active" data-toggle="modal" href="../home/"><span class="glyphicon glyphicon-home"></span> Home    </a>
+            <a role="presentation" class="active" data-toggle="modal" href="../register/"><span class="glyphicon glyphicon-pencil"></span> Register    </a> 
+            </div>
+          </ul>
+    </div>
+    
+</header>
+
+  <body>
+     <div class="container">
+        <div class="header">
+            <nav>
+                
+            </nav>
+    </div>
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        {{message}}
+        </div>
+      {% endfor %}
+      {% endif %}
+    {% endwith %}
+ 
+    <div class="container">
+ 
+      <div class="jumbotron">
+        <h2>Medical Web Advisor</h2>
+        <form action="" method="POST">
+        <label for="inputName" class="sr-only">Username</label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+        <button id="btnLogin" class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
+      </form>
+    </div>
+
+   </body>
+</html>

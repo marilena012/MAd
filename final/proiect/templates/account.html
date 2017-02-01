@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Medical Web Advisor</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+ 
+ 
+</head>
+
+<header>
+   
+    <div class = "container-fluid">
+          
+    <ul class="nav navbar-nav navbar-left">
+          
+          <div style="margin-right: 250px; margin-left: 300px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <h3>Medical Web Advisor</h3>
+
+          </div>
+        </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+          
+          <div style="margin-right: 50px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+            <h5> 
+            <h3>Hi, {{username}}!</h3>
+            <a role="presentation" class="active" data-toggle="modal" href="../home/"><span class="glyphicon glyphicon-home"></span> Home    </a>  
+            <a role="presentation" class="active" data-toggle="modal" href="../quiz/"><span class="glyphicon glyphicon-cog"></span> Quiz    </a>
+            <a role="presentation" data-toggle="modal" href="../logout/"><span class="glyphicon glyphicon-log-out"></span> Logout     </a>
+
+            </h5>
+            </div>
+          </ul>
+    </div>
+    
+</header>
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+                
+            </nav>
+    </div>
+  
+    {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            {{message}}
+            </div>
+          {% endfor %}
+          {% endif %}
+        {% endwith %}
+  
+   
+    <p><h3>Personal data</h3><p>
+
+   <form action = "" method = "POST" class="form-horizontal">
+            {% if username %}
+            <div class="form-group">
+               <label for="disName" class="col-sm-2 control-label">Username: </label>
+
+                <div class="col-sm-8">
+                 <input type = "text" name = "inputUsername" value="{{username}}" aria-describedby="sizing-addon1"  class="form-control">
+                 </div>
+            </div>
+            {% endif %}
+
+     
+          {% if password %}   
+          <div class="form-group">
+               <label for="password" class="col-sm-2 control-label">Password: </label>
+
+                <div class="col-sm-8">
+                    <input type = "password" name = "inputPassword" placeholder="password" aria-describedby="sizing-addon1"  class="form-control">
+                 </div>
+            </div>
+            <div class="form-group">
+                 <label for="confirmpassword" class="col-sm-2 control-label"> Confirm Password: </label>
+                  <div class="col-sm-8">
+                  <input type="password" name="inputConfirmPassword" id="inputConfirmPassword"  placeholder="Confirm password"  aria-describedby="sizing-addon1"  class="form-control"></p>
+          </div>
+          </div>
+         {% endif %}
+
+
+         {% if country %}
+         <div class="form-group">
+               <label for="country" class="col-sm-2 control-label">Country: </label>
+               <div class="col-sm-8">
+               <input type = "text" name = "inputCountry" value="{{country}}" aria-describedby="sizing-addon1"  class="form-control"  ></p>
+                </div>
+            </div>
+          {% endif %}
+
+          {% if birthday %}
+         <div class="form-group">
+               <label for="country" class="col-sm-2 control-label">Birthday: </label>
+               <div class="col-sm-8">
+               <input type ="text" name = "inputBirthday" value="{{birthday}}"    aria-describedby="sizing-addon1"  class="form-control" ></p>
+                  </div>
+            </div>
+         {% endif %}
+
+
+         {% if gender %}
+           <div class="form-group">
+               <label for="country" class="col-sm-2 control-label">Gender: </label>
+               <div class="col-sm-8">
+                  <input type ="label" name="genders" value="{{gender}}"  aria-describedby="sizing-addon1"  class="form-control" ></p> 
+                </div>
+            </div>
+         {% endif %}
+        
+
+          {% if food != 'null' %}
+          <div class="form-group">
+               <label for="country" class="col-sm-2 control-label">Food: </label>
+               <div class="col-sm-8">
+                  <input type ="food" name="favoriteFood" value="{{food}}" aria-describedby="sizing-addon1"  class="form-control" ></p> 
+                </div>
+            </div>
+         {% endif %}
+
+        
+         {% if sports != 'null' %}
+          
+           <div class="form-group">
+               <label for="country" class="col-sm-2 control-label">Do you practice sports: </label>
+               <div class="col-sm-8">
+            <input type="radio" name="lifestyle" id="yes" value="1" {% if sports == 1 %} checked {% endif %}> Yes </input>
+            <input type="radio" name="lifestyle" id="no" value="0" {% if sports == 0 %} checked {% endif %}> No </input>
+               </div>
+            </div>
+           
+          {% endif %}
+
+
+                 
+         {%  if smoker != 'null' %}
+          <div class="form-group">
+               <label for="country" class="col-sm-2 control-label">Smoker: </label>
+               <div class="col-sm-8">
+                    <input type="radio" name="smoker" id="yes" value="1" {% if smoker == 1 %} checked {% endif %}> Yes </input>
+                    <input type="radio" name="smoker" id="no" value="0" {% if smoker == 0 %} checked {% endif %}> No </input>
+               </div>
+            </div>
+            
+          {% endif %}
+          
+
+
+          <button id="btnEdit" type = "submit" class="btn btn-lg btn-primary btn-block">Edit </button>
+        
+      </form>   
+  
+
+</body>
+</html>
